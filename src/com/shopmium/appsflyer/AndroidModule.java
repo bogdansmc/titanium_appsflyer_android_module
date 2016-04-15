@@ -42,25 +42,31 @@ public class AndroidModule extends KrollModule
 	@Kroll.method
 	public void startTracker(String appsFlyerDevKey) {
 		Log.d(TAG, "[DEBUG] AppsFlyer > startTracker: appsFlyerDevKey:" + appsFlyerDevKey);
-		AppsFlyerLib.setAppsFlyerKey(appsFlyerDevKey);
+		TiApplication appContext = TiApplication.getInstance();
+		AppsFlyerLib.getInstance().startTracking(appContext, appsFlyerDevKey);
 	}
 
 	@Kroll.method
 	public void setInstallId(String installId) {
-		AppsFlyerLib.setAppUserId(installId);
+		AppsFlyerLib.getInstance().setAppUserId(installId);
 	}
 
 	@Kroll.method
 	public void trackAppLaunch() {
-		Log.d(TAG, "[DEBUG] AppsFlyer > TrackLAppLaunch: customerUserID:" + AppsFlyerLib.getAppUserId());
-		TiApplication appContext = TiApplication.getInstance();
-		AppsFlyerLib.sendTracking(appContext);
 	}
 
 	@Kroll.method
 	public void trackAction(String eventName, String eventValue) {
 		TiApplication appContext = TiApplication.getInstance();
-		AppsFlyerLib.sendTrackingWithEvent(appContext, eventName, eventValue);
+		java.util.Map<String, Object> eventValueMap = new java.util.HashMap<String, Object>();
+		eventValueMap.put(eventName,eventValue);
+		AppsFlyerLib.getInstance().trackEvent(appContext, eventName, eventValueMap);
+	}
+	
+	@Kroll.getProperty @Kroll.method
+	public String getAppsFlyerUID() {
+		TiApplication appContext = TiApplication.getInstance();
+		return AppsFlyerLib.getInstance().getAppsFlyerUID(appContext);
 	}
 }
 

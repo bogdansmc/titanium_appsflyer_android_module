@@ -13,6 +13,6 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/benay/Dev/shopmium-mobile/modules/appsflyer/android/lib/AF-Android-SDK-v2.3.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/benay/Dev/shopmium-mobile/modules/appsflyer/android/lib/AF-Android-SDK-v4.3.3.jar.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
