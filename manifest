@@ -2,9 +2,9 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 1.1
-apiversion: 2
-architectures: armeabi armeabi-v7a x86
+version: 1.2
+apiversion: 3
+architectures: armeabi-v7a x86
 description: Appsflyer Android SDK integration
 author: Shopmium (Jonathan Benay)
 license: no license
@@ -16,4 +16,4 @@ name: android
 moduleid: com.shopmium.appsflyer
 guid: e0050633-4fce-4882-93ba-b1656fda0697
 platform: android
-minsdk: 4.0.0.GA
+minsdk: 6.0.3.GA
